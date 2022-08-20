@@ -1,0 +1,16 @@
+= Setup build environment =
+
+[[index.wiki|Up]] | [[../../index.wiki|Home]]
+
+----
+
+To make it more portabe, all toolchains wi be installed/run inside a Linux container.
+We do have to build a container image, the minimal one which includes:
+
+* QEMU
+* GCC
+* Gnu Make
+* ...
+
+In this setup, we will use Fedora (personal choise only), the container engine is *Podman* (rootless, that's why I prefer over *Docker*).
+

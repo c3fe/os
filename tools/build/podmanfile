@@ -1,0 +1,7 @@
+FROM	fedora:latest
+
+RUN	dnf update -y
+RUN	dnf install -y qemu-system-arm arm-none-eabi-gcc-cs make
+
+CMD	["/bin/bash"]
+

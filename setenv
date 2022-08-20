@@ -1,0 +1,2 @@
+export PATH=$PWD/tools/build:$PATH
+

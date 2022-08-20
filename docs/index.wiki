@@ -1,0 +1,17 @@
+= BoredOm OS Development =
+
+----
+
+== Setup build environment ==
+
+* Using Fedora latest as host
+* Tools:
+	* QEMU ARM (target ARM 32bits)
+	* GCC
+> [[contents/setup/index.wiki|detail]]
+
+== Implement first bootable using QEMU ==
+
+T.B.D
+
+
