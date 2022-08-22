@@ -10,13 +10,16 @@ all: kernel.bin
 kernel.bin: kernel.elf
 	${OBJCOPY} -O binary $< $@
 
-kernel.elf: kernel/kernel.o kernel/arch/arm/boot/head.o kernel/arch/arm/kernel.ld
-	${LD} -o $@ -T kernel/arch/arm/kernel.ld kernel/kernel.o kernel/arch/arm/boot/head.o
+kernel.elf: kernel/kernel.o kernel/arch/arm/boot/debug.o kernel/arch/arm/boot/head.o kernel/arch/arm/kernel.ld
+	${LD} -o $@ -T kernel/arch/arm/kernel.ld kernel/arch/arm/boot/debug.o kernel/kernel.o kernel/arch/arm/boot/head.o
 
 kernel/kernel.o: kernel/kernel.c
 	${CC} -c -o $@ $<
 
 kernel/arch/arm/boot/head.o: kernel/arch/arm/boot/head.s
+	${AS} -o $@ $<
+
+kernel/arch/arm/boot/debug.o: kernel/arch/arm/boot/debug.s
 	${AS} -o $@ $<
 
 qemu-run: kernel.bin
